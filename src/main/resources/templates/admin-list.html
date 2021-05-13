@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/jpeg">
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/table-style.css">
+    <style>
+        .content__main-frame{
+            background-size: cover;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url("/images/admin/admin19.jpg") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="content__menu-bar">
+        <div class="content__nav-bar">
+            <ul>
+                <li>
+                    <a href="/flower-create">
+                        <img src="/images/admin/pencil.png" alt="create" width="60">
+                        <span>Добавить букет</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/flowers">
+                        <img src="/images/admin/flowers.jpg" alt="list" width="60">
+                        <span>Букеты</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admin-create">
+                        <img src="/images/admin/pencil.png" alt="list" width="60">
+                        <span>Добавить админа</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admins">
+                        <img src="/images/admin/user.png" alt="list" width="60">
+                        <span>Админы</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admin-create">
+                        <img src="/images/admin/pencil.png" alt="list" width="60">
+                        <span>Добавить работника доставки</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admins">
+                        <img src="/images/customer/car.svg" alt="list" width="60">
+                        <span>Работники доставки</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/report">
+                        <img src="/images/admin/calculator.png" alt="list" width="60">
+                        <span>Отчёты</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admins">
+                        <img src="/images/admin/analys.png" alt="list" width="60">
+                        <span>Аналитика</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admins">
+                        <img src="/images/customer/report.png" alt="list" width="60">
+                        <span>Отзывы</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/admins">
+                        <img src="/images/customer/service.png" alt="list" width="60">
+                        <span>Оценки</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content1">
+                        <img src="/images/admin/login.png">
+                        <h3>Админ</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content1">
+                        <p>
+                            СУБД: MySQL<br>
+                            База данных: Bloom&Wild<br>
+                            Порт: 3307
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="content__main-frame">
+        <span class="content__welcome">Aдмины</span>
+        <a href="/"><span class="content__name">Bloom&Wild</span></a>
+        <img src="/images/logo.png" alt="logo" width="100" class="content__logo">
+
+        <div th:switch="${admins}" class="form">
+            <h2 th:case="null">Нет администраторов</h2>
+            <div th:case="*">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Имя</th>
+                        <th>Пароль</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each = "admin : ${admins}">
+                        <td th:text="${admin.id}"></td>
+                        <td th:text="${admin.name}"></td>
+                        <td th:text="${admin.access}"></td>
+                        <td><a th:href = "@{admin-update/{id} (id=${admin.id})}">Edit</a></td>
+                        <td><a th:href = "@{admin-delete/{id} (id=${admin.id})}">Del</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

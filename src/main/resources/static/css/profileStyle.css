@@ -1,0 +1,403 @@
+:root {
+    /* COLORS */
+    --white: #e9e9e9;
+    --gray: #cdc9c9;
+    --green: #31751f;
+    --lightgreen: #3f922a;
+
+    /* RADII */
+    --button-radius: 0.7rem;
+
+    /* SIZES */
+    --max-width: 758px;
+    --max-height: 420px;
+
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+*{
+    padding:0;
+    margin: 0 auto;
+    outline:none;
+}
+
+.content{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.content__menu-bar{
+    width: 30%;
+    background: var(--gray);
+    height:100%;
+    color: #4c4a4a;
+    position:relative;
+}
+
+.content__nav-bar{
+    height:40%;
+    border: solid 0.1rem var(--green);
+    overflow-y: scroll;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.content__main-frame{
+    width:70%;
+    overflow-x: hidden;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("../../images/assets/customer/gardaLake.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.content__main-frame1{
+    width:70%;
+    overflow-x: hidden;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("../../images/assets/customer/gardaLake.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+a{
+    text-decoration: none;
+}
+
+span{
+    color: #4c4a4a;
+    font-size: 3rem;
+    font-weight:800;
+}
+
+.content__logo{
+    border-radius: 50%;
+    position: absolute;
+    right: 2rem;
+    bottom:2rem;
+    cursor:pointer;
+}
+
+.content__weather{
+    color:var(--white);
+    font-weight:600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    position:absolute;
+    left:2rem;
+    bottom: 2rem;
+}
+
+.content__name-continuation{
+    position: absolute;
+    right: 2rem;
+    top:7rem;
+    font-size: 2rem;
+}
+
+.content__name{
+    position: absolute;
+    right: 2rem;
+    top:1.5rem;
+    font-size: 5rem;
+    color:var(--white);
+}
+
+.content__welcome{
+    position: absolute;
+    top:2rem;
+    left: 2rem;
+    color:var(--white);
+}
+
+
+
+.modal {
+    position: fixed;
+    z-index:50;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    animation: fade 0.3s ease forwards;
+    display: none;
+}
+.modal.is_open {
+    display: flex;
+}
+.modal.is_closing {
+    animation: fadeOut 0.3s ease forwards;
+}
+.modal__dimmer {
+    background: #0008;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.modal__content {
+    width: 40rem;
+    max-width: 100%;
+    margin: auto;
+    background: #fff;
+    padding: 32px;
+    z-index: 1;
+    position: relative;
+    animation: slideUp 0.3s 0.15s ease forwards;
+    opacity: 0;
+    box-shadow: 5px 5px 15px #0003;
+}
+.modal__content h1 {
+    margin-top: 0;
+}
+.modal__close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid;
+    border-radius: 50%;
+    top: -15px;
+    right: -15px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.modal__close:hover {
+    background: var(--green);
+    color: #fff;
+}
+.modal__logo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:auto;
+}
+blockquote{
+    border:var(--green) solid 0.1rem;
+    padding:1rem;
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.contacts{
+    position: absolute;
+    bottom: 6%;
+    left:17%;
+}
+
+.contacts .card{
+    position: relative;
+    cursor: pointer;
+}
+
+.contacts .card .face{
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+
+.contacts .card .face.face1{
+    position: relative;
+    background: var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+}
+
+.contacts .card:hover .face.face1{
+    background: var(--green);
+    transform: translateY(0);
+}
+
+.contacts .card .face.face1 .content1{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.contacts .card:hover .face.face1 .content1{
+    opacity: 1;
+}
+
+.contacts .card .face.face1 .content1 img{
+    max-width: 100px;
+}
+
+.contacts .card .face.face1 .content1 h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #4c4a4a;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.contacts .card .face.face2{
+    position: relative;
+    background: #5b5959;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    transform: translateY(-100px);
+}
+
+.contacts .card:hover .face.face2{
+    transform: translateY(0);
+}
+
+.contacts .card .face.face2 .content1 p{
+    margin: 0;
+    padding: 0;
+    color: var(--gray);
+}
+
+.contacts .card .face.face2 .content1 a{
+    margin: 15px 0 0;
+    display:  inline-block;
+    text-decoration: none;
+    font-weight: 900;
+    color: var(--green);
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.contacts .card .face.face2 .content1 a:hover{
+    background: #333;
+    color: var(--green);
+}
+
+
+#player{
+    position:absolute;
+    top:20%;
+    left:20%;
+}
+
+a{
+    font-size:1.2rem;
+    font-weight:600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+li span{
+    font-size: inherit;
+    font-weight:inherit;
+    width:70%;
+}
+
+.form{
+    width: 60%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    overflow-y: scroll;
+    background: var(--gray);
+    color: #4c4a4a;
+    padding: 1.9rem;
+    border-radius: 10px;
+}
+
+input{
+    background-color: #fff;
+    border: none;
+    padding: 0.9rem 0.9rem;
+    margin: 0.5rem 0;
+    width: 50%;
+}
+
+label{
+    float:left;
+    width: 200px;
+    color: #4c4a4a;
+}
+
+.btn {
+    background-color: var(--green);
+    background-image: linear-gradient(90deg, var(--green) 0%, var(--lightgreen) 74%);
+    border-radius: 20px;
+    border: 1px solid var(--green);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.btn1 {
+    background-color: var(--green);
+    background-image: linear-gradient(90deg, var(--green) 0%, var(--lightgreen) 74%);
+    border-radius: 20px;
+    border: 1px solid var(--green);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+
+form > .btn, form > .btn1 {
+    margin-top: 1.5rem;
+}
+
+.btn:active, .btn1:active {
+    transform: scale(0.95);
+}
+
+.btn:focus,.btn1:focus {
+    outline: none;
+}

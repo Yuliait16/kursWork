@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org/"><!--xmlns:th="http://www.w3.org/1999/xhtml">-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/jpeg">
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/table-style.css">
+    <link rel="stylesheet" href="/css/search-style.css">
+    <link rel="stylesheet" href="/css/style1.css">
+    <style>
+        .content__main-frame{
+            background-size: cover;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url("/images/customer/background.jpg") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="content__menu-bar">
+        <div class="content__nav-bar">
+            <ul>
+                <li>
+                    <a href="/flower-customer">
+                        <img src="/images/admin/flowers.jpg" alt="my routes" width="60">
+                        <span>Букеты</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/flower-customerb">
+                        <img src="/images/customer/bascket.svg" alt="new route" width="60">
+                        <span>Корзина</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/map">
+                        <img src="/images/customer/map.png" alt="cities" width="60">
+                        <span>Мы на карте</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/facts">
+                        <img src="/images/admin/flowers.jpg" alt="cities" width="60">
+                        <span>Интересные факты о цветах</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/list-basket">
+                        <img src="/images/customer/service.png" alt="cities" width="60">
+                        <span>Оценить сервис</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/customer-rate">
+                        <img src="/images/customer/report.png" alt="cities" width="60">
+                        <span>Оставить отзыв</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content1">
+                        <img src="/images/authorisation/whatsapp.svg">
+                        <h3>Контакты</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content1">
+                        <p>
+                            e-mail: yuliait16@gmail.com
+                            <br>
+                            тел.  : +375(29)817 4596
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="content__main-frame">
+        <span class="content__welcome">Букеты</span>
+        <a href="/"><span class="content__name">Bloom&Wild</span></a>
+        <img src="/images/logo.png" alt="logo" width="100" class="content__logo">
+
+        <a href = "/flower-search">
+            <img src="/images/customer/found.png" alt="Search" width="40" class="content__search">
+        </a>
+        <div class="content__sort">
+            <a title="Сортировать по возрастанию стоимости букета" href="/sort-asc">&#9650;</a>
+            <a title="Сортировать по убыванию стоимости букета" href="/sort-desc">&#9660;</a>
+        </div>
+
+        <a href = "/flower-filter" title="Ввести диапазон стоимости букета">
+            <img src="/images/assets/menu/filter.svg" alt="Filter" width="40" class="content__filter">
+        </a>
+
+        <div class="content__filter-input">
+            <form th:action="@{/flower-filter-input}" method="post">
+                <input type="number" min="1" max="30000" name="min" required class="small-input" placeholder="min">
+                <input type="number" min="2" max="30001" name="max" required class="small-input" placeholder="max">
+                <button type="submit" class="small-input">Показать</button>
+            </form>
+        </div>
+
+        <div th:switch="${flowers}">
+            <h2 th:case="null">Нет букетов</h2>
+            <div th:case="*" class="content__table">
+                <div th:each = "flower : ${flowers}" class="content__block hidden">
+
+                    <form class="description" th:action="@{/basket}" th:object="${basket}" th:method="get">
+                        <span class="label">Название: </span><span class="data" th:text="${flower.name}"></span><br>
+                        <span class="label">Тип: </span><span class="data" th:text="${flower.type}"></span><br>
+                        <span class="label">Количество: </span><span class="data" th:text="${flower.count}"></span><br>
+                        <span class="label">Стоимость: </span><span class="data" th:text="${flower.price}"></span><br>
+
+
+                        <button type="submit" class="btnBuy">Купить</button>
+
+                        <input class="input" type="email" name="login" readonly id="login">
+                        <input class="input" type="text" th:value="${flower.getId()}" name="flowerId" readonly id="name">
+                    </form>
+
+                    <img th:src="@{${flower.picture}}" class="picture" width="350"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const id=document.querySelector("#name")
+</script>
+
+</div>
+<script>const login=document.querySelector("#login")
+login.value=localStorage.getItem("login")
+</script>
+<script src="/js/general/general.js"></script>
+<script src="/js/cities/cities.js"></script>
+</body>
+</html>

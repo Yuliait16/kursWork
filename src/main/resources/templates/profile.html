@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+                  
+
+
+        </div>
+    </div>
+    <div class="content__main-frame">
+
+
+        <a href="/about-us" class="about-us-link">О нас</a>
+
+        <div class="content__weather">
+            <div class="content__city" contenteditable="true"></div>
+            <i class="content__weather-icon owf"></i>
+            <div class="content__temperature"></div>
+            <div class="content__weather-description"></div>
+            <div class="content__weather-humidity"></div>
+            <div class="content__weather-wind-speed"></div>
+        </div>
+
+        <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+        <div id="player"></div>
+
+        <script>
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    height: '390',
+                    width: '640',
+                    videoId: '7lvXbfNBIQg',
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            }
+
+
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+
+            function stopVideo() {
+                player.stopVideo();
+            }
+        </script>
+    </div>
+</div>
+
+
+</div>
+<script src="/js/profile.js"></script>
+</body>
+</html>

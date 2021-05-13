@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <!--<link rel="shortcut icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">-->
+</head>
+<body>
+<div th:switch="${flowers}">
+    <h2 th:case="null">Нет букета</h2>
+    <div th:case="*">
+        <h2>Букеты</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Тип</th>
+                <th>Количество цветов в букете</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "flower : ${flowers}">
+                <td th:text="${flower.id}"></td>
+                <td th:text="${flower.name}"></td>
+                <td th:text="${flower.type}"></td>
+                <td th:text="${flower.count}"></td>
+                <td th:text="${flower.price}"></td>
+                <td><a th:href = "@{flower-update/{id} (id=${flower.id})}">Редактировать</a></td>
+                <td><a th:href = "@{flower-delete/{id} (id=${flower.id})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<p><a href="/flower-create">Создать</a> </p>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/profile/owfont-regular.css">
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/style1.css">
+
+    <style>
+        .content__main-frame{
+            background-size: cover;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url("/images/customer/background.jpg") no-repeat;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0q0D9hdqRQtu6UJUqF9Pk8egUBq4TOYQoMFyFkt7bccw0gNnJi8gIc52ptZbKHENwJtsnfDDHiKtvLbfYMvYfO95IzgpCs8DpsQnJuC4z2R1GF5EqdhClM1jTg0CeGMpBTSc6AJmPPg47d6QPggBng" charset="UTF-8"></script></head>
+<body>
+        <div class="contacts">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content1">
+                        <img src="/images/authorisation/whatsapp.svg">
+                        <h3>Контакты</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content1">
+                        <p>
+                            e-mail: yuliait16@gmail.com
+                            <br>
+                            тел. : +375(29)817 4596
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="content__main-frame">
+        <span class="content__welcome">Поиск</span>
+
+        <form th:action="@{/found-flowers}" th:object="${flower}" method="post">
+
+            <label for="type">Название</label>
+            <input type="text" th:field="*{type}" id="type" placeholder="Название" value="">
+
+            <button type="submit" class="btn1">Найти</button>
+        </form>
+
+    </div>
+</div>
+
+</div>
+<script src="/js/slider.js"></script>
+</body>
+</html>

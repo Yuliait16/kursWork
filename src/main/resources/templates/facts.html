@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/profile/owfont-regular.css">
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/style1.css">
+    <style>
+        .content__main-frame{
+            background-size: cover;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url("/images/customer/background.jpg") no-repeat;
+        }
+    </style>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0q0D9hdqRQtu6UJUqF9Pk8egUBq4TOYQoMFyFkt7bccw0gNnJi8gIc52ptZbKHENwJtsnfDDHiKtvLbfYMvYfO95IzgpCs8DpsQnJuC4z2R1GF5EqdhClM1jTg0CeGMpBTSc6AJmPPg47d6QPggBng" charset="UTF-8"></script></head>
+<body>
+<div class="content">
+    <div class="content__menu-bar">
+        <div class="content__nav-bar">
+            <ul>
+                <li>
+                    <a href="/flower-customer">
+                        <img src="/images/admin/flowers.jpg" alt="my routes" width="60">
+                        <span>Букеты</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/flower-customerb">
+                        <img src="/images/customer/bascket.svg" alt="new route" width="60">
+                        <span>Корзина</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/map">
+                        <img src="/images/customer/map.png" alt="cities" width="60">
+                        <span>Мы на карте</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/facts">
+                        <img src="/images/admin/flowers.jpg" alt="cities" width="60">
+                        <span>Интересные факты о цветах</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/list-basket">
+                        <img src="/images/customer/service.png" alt="cities" width="60">
+                        <span>Оценить сервис</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/customer-rate">
+                        <img src="/images/customer/report.png" alt="cities" width="60">
+                        <span>Оставить отзыв</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content1">
+                        <img src="/images/authorisation/whatsapp.svg">
+                        <h3>Контакты</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content1">
+                        <p>
+                            e-mail: yuliait16@gmail.com
+                            тел. : +375(29)817 4596
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="content__main-frame">
+        <span class="content__welcome">O цветах!</span>
+        <a href="/"><span class="content__name">Bloom&Wild</span></a>
+        <img src="/images/logo.png" alt="logo" width="100" class="content__logo">
+        <div id="player"></div>
+        <script>
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    height: '390',
+                    width: '640',
+                    videoId: 'IPi4kqqJifM',
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            }
+
+            // 4. The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+
+            // 5. The API calls this function when the player's state changes.
+            //    The function indicates that when playing a video (state=1),
+            //    the player should play for six seconds and then stop.
+
+            function stopVideo() {
+                player.stopVideo();
+            }
+        </script>
+
+    </div>
+</div>
+
+<script src="/js/slider.js"></script>
+</body>
+</html>

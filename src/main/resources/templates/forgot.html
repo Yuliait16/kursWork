@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <link rel="shortcut icon" href="/images/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="/css/auth.css">
+    <style>
+        .error-message{
+            background-color: #e9e9e9;
+            position: absolute;
+            z-index: 50;
+            color: #333333;
+            top: 2rem;
+            right: 2rem;
+            padding: 0 0.9rem;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="error-message">
+    <h4 th:text="${error}"></h4>
+</div>
+<div class="container right-panel-active">
+    <!-- Sign Up -->
+    <div class="container__form container--signup">
+
+        <form  th:action="@{/forgot-password}" th:object="${customer}" method="post" class="form" id="form1">
+            <h2 class="form__title">Забыли пароль</h2>
+
+            <input class="input" type="email" th:field="*{email}" id="access" placeholder="Email">
+
+            <button class="btn" type="submit">Отправить</button>
+        </form>
+
+    </div>
+
+    <!-- Overlay -->
+    <div class="container__overlay">
+        <div class="overlay"></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/jpeg">
+    <link rel="stylesheet" href="/css/profileStyle.css">
+    <link rel="stylesheet" href="/css/table-style.css">
+    <link rel="stylesheet" href="/css/search-style.css">
+    <style>
+        .content__main-frame{
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url("/images/registration/autorisation.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
+<body>
+
+        <div class="contacts">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content1">
+                        <img src="/images/authorisation/whatsapp.svg">
+                        <h3>Контакты</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content1">
+                        <p>
+                            e-mail: yuliait16@gmail.com
+                            <br>
+                            тел.  : +375(29)817 4596
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="content__main-frame">
+        <span class="content__welcome">Букеты</span>
+        <a href="/"><span class="content__name">Bloom&Wild</span></a>
+        <img src="/images/logo.png" alt="logo" width="100" class="content__logo">
+
+        <a href = "/flower-search">
+            <img src="/images/assets/menu/search.svg" alt="Search" width="40" class="content__search">
+        </a>
+        <div class="content__sort">
+            <a title="Сортировать по возрастанию стоимости букета" href="/sort-asc">&#9650;</a>
+            <a title="Сортировать по убыванию стоимости букета" href="/sort-desc">&#9660;</a>
+        </div>
+
+        <a href = "/city-filter" title="Ввести диапазон стоимости проживания в месяц">
+            <img src="/images/assets/menu/filter.svg" alt="Filter" width="40" class="content__filter">
+        </a>
+        <div class="content__filter-input">
+            <form th:action="@{/city-filter-input}" method="post">
+                <input type="number" min="1" max="30000" name="min" required class="small-input" placeholder="min">
+                <input type="number" min="2" max="30001" name="max" required class="small-input" placeholder="max">
+                <button type="submit" class="small-input">Показать</button>
+            </form>
+        </div>
+
+        <!-- <div th:switch="${flowers}">
+             <h2 th:case="null">Нет букетов</h2>
+             <div th:case="*" class="content__table">
+                 <div th:each = "flower : ${flowers}" class="content__block hidden">
+
+                     <div class="description">
+                         <span class="label">Название: </span><span class="data" th:text="${flower.name}"></span><br>
+                         <span class="label">Тип: </span><span class="data" th:text="${flower.type}"></span><br>
+                         <span class="label">Количество: </span><span class="data" th:text="${flower.count}"></span><br>
+                         <span class="label">Стоимость: </span><span class="data" th:text="${flower.price}"></span><br>
+                         <a href = "/flower-add">
+                             <img src="/images/customer/add.png" alt="Add" width="40">
+                         </a>
+
+                         <a href = "/flower-pay">
+                             <img src="/images/customer/credit-card.png" alt="Pay" width="40">
+                         </a>
+                     </div>
+
+                     <img th:src="@{${flower.picture}}" class="picture" width="350"/>
+                 </div>
+
+             </div>
+
+         </div>-->
+        <div th:switch="${flowers}">
+            <h2 th:case="null">Нет букетов</h2>
+            <div th:case="*" class="content__table">
+                <div th:each = "flower : ${flowers}" class="content__block hidden">
+
+                    <div class="description">
+                        <span class="label">Название: </span><span class="data" th:text="${flower.name}"></span><br>
+                        <span class="label">Тип: </span><span class="data" th:text="${flower.type}"></span><br>
+                        <span class="label">Количество: </span><span class="data" th:text="${flower.count}"></span><br>
+                        <span class="label">Стоимость: </span><span class="data" th:text="${flower.price}"></span><br>
+                    </div>
+                    <img th:src="@{${flower.picture}}" class="picture" width="350"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/general/general.js"></script>
+<script src="/js/cities/cities.js"></script>
+</body>
+</html>

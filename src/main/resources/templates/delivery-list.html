@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <!--<link rel="shortcut icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">-->
+</head>
+<body>
+<div th:switch="${deliveries}">
+    <h2 th:case="null">Нет заказа</h2>
+    <div th:case="*">
+        <h2>Заказы</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Адрес</th>
+                <th>Номер карты</th>
+                <th>Код</th>
+                <th>Дата окончания срока действия</th>
+                <th>Дата заказа</th>
+                <th>id_букета</th>
+                <th>id_получателя</th>
+                <th>Стоимость</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "delivery : ${deliveries}">
+                <td th:text="${delivery.id}"></td>
+                <td th:text="${delivery.address}"></td>
+                <td th:text="${delivery.cardnumber}"></td>
+                <td th:text="${delivery.securitycode}"></td>
+                <td th:text="${delivery.expirationdate}"></td>
+                <td th:text="${delivery.date_of_delivery}"></td>
+                <td th:text="${delivery.id_flower}"></td>
+                <td th:text="${delivery.id_customer}"></td>
+                <td th:text="${delivery.cost}"></td>
+                <td><a th:href = "@{delivery-update/{id} (id=${delivery.id})}">Редактировать</a></td>
+                <td><a th:href = "@{delivery-delete/{id} (id=${delivery.id})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<p><a href="/flower-create">Создать</a> </p>
+</body>
+</html>
